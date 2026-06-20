@@ -8,7 +8,7 @@ function adicionarTarefa(){
 
     atualizarLista();
 
-    texto.value = "";
+    tarefa.value = "";
 }
 
 function atualizarLista(){
@@ -18,7 +18,14 @@ function atualizarLista(){
 
     for(let i = 0; i < tarefas.length; i++){
         lista.innerHTML += `
-            <li>${tarefas[i]}</li>
+            <li>${tarefas[i]} <button onClick="removerTarefa(${i})">Remover</button> </li>
         `
     };
+}
+
+function removerTarefa(i){
+    
+    tarefas.splice(i, 1)
+
+    atualizarLista();
 }
