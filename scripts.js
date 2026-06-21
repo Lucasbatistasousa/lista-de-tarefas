@@ -41,13 +41,22 @@ function atualizarLista(){
 
         // Verifica se o valor da chave concluida é true
         if (tarefas[i].concluida){
-            texto = `<s>${texto}`; // Se a tarefa tiver sido concluida ela é riscada.
+            texto = `<s>${texto}</s>`; // Se a tarefa tiver sido concluida ela é riscada.
+
+        }
+
+        let textoBotaoConcluir = tarefas[i].concluida
+
+        if (textoBotaoConcluir){
+            textoBotaoConcluir = "Desfazer"
+        } else {
+            textoBotaoConcluir = "Concluir"
         }
 
         // Mostra a lista na tela com botões para remover e concluir tarefa
         lista.innerHTML += `
             <li>${texto} 
-            <button onClick="concluirTarefa(${i})">Concluir</button>  
+            <button onClick="concluirTarefa(${i})">${textoBotaoConcluir}</button>  
             <button onClick="removerTarefa(${i})">Remover</button> 
             </li>
         ` 
@@ -66,6 +75,10 @@ function removerTarefa(i){
 // Função de concluir a tarefa
 function concluirTarefa(i){
     // Altera somente o valor da chave que verifica se a tarefa está concluida.
-    tarefas[i].concluida = true;
+    if (tarefas[i].concluida) {
+        tarefas[i].concluida = false
+    } else {
+        tarefas[i].concluida = true
+    }
     atualizarLista();
 }
