@@ -1,5 +1,14 @@
 let tarefas = []; // Lista incial vazia
 
+// Função para carregar as tarefas assim que abrir a página
+function carregarTarefa(){
+    const tarefasSalvas = localStorage.getItem("lista-de-tarefas");
+    if (tarefasSalvas){
+        tarefas = JSON.parse(tarefasSalvas); // Adiciona na lista global tarefas
+    }
+    atualizarLista();
+}
+
 // Função de adicionar tarefas
 function adicionarTarefa(){
     let tarefa = document.getElementById("tarefa") // Variável que recebe o input no HTML
@@ -17,6 +26,9 @@ function adicionarTarefa(){
             tarefa: textoFormatado,
             concluida: false,
         });
+
+        localStorage.setItem("lista-de-tarefas", JSON.stringify(tarefas));
+
         // Chamada de outra função
          atualizarLista();
 
@@ -66,7 +78,9 @@ function atualizarLista(){
 // Função de remover tarefa da lista
 function removerTarefa(i){
     
-    tarefas.splice(i, 1) // Método que apaga a tarefa através do índice e a quantidade. 
+    tarefas.splice(i, 1) // Método que apaga a tarefa através do índice e a quantidade.
+    
+    localStorage.setItem("lista-de-tarefas", JSON.stringify(tarefas))
 
     // Chamada da função atualizar a lista
     atualizarLista(); 
@@ -80,5 +94,10 @@ function concluirTarefa(i){
     } else {
         tarefas[i].concluida = true
     }
+
+    localStorage.setItem("lista-de-tarefas", JSON.stringify(tarefas))
+
     atualizarLista();
 }
+
+carregarTarefa();
