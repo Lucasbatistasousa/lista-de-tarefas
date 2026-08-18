@@ -56,7 +56,7 @@ Por ser um projeto simples de HTML/CSS/JS, não há dependências para instalar.
 
 ## 👤 Autor
 
-Desenvolvido por **Lucas Sousa** — [seu portfólio](https://lucasdesenvolvedorweb.com.br) | [LinkedIn](https://linkedin.com/in/lucas-batista-sousa)
+Desenvolvido por **Lucas Sousa** — [Meu portfólio](https://lucasdesenvolvedorweb.com.br) | [LinkedIn](https://linkedin.com/in/lucas-batista-sousa)
 
 ---
 
