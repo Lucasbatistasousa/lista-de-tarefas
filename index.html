@@ -10,10 +10,12 @@
     <main>
         <div class="adicionar-tarefa">
             <h1>Lista de Tarefas</h1>
-            <input type="text" id="tarefa" placeholder="Digite uma tarefa: ">
-            <button onclick="adicionarTarefa()">
-                Adicionar
-            </button>
+            <div class="adicionar-tarefa-input">
+                <input type="text" id="tarefa" placeholder="Digite uma tarefa: ">
+                <button class="adicionar" onclick="adicionarTarefa()">
+                    Adicionar
+                </button>
+            </div>
         </div>
         <div class="lista-tarefas">
             <ul id="lista"></ul>

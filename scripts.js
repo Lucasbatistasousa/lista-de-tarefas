@@ -60,17 +60,20 @@ function atualizarLista(){
         let textoBotaoConcluir = tarefas[i].concluida
 
         if (textoBotaoConcluir){
-            textoBotaoConcluir = "Desfazer"
+            textoBotaoConcluir = "↩️"
         } else {
-            textoBotaoConcluir = "Concluir"
+            textoBotaoConcluir = "✅"
         }
 
         // Mostra a lista na tela com botões para remover e concluir tarefa
         lista.innerHTML += `
-            <li>${texto} 
-            <button onClick="concluirTarefa(${i})">${textoBotaoConcluir}</button>  
-            <button onClick="removerTarefa(${i})">Remover</button> 
-            </li>
+                <div>
+                    <li>
+                        <button class="tarefas" onClick="concluirTarefa(${i})">${textoBotaoConcluir}</button>
+                        <button class="tarefas" onClick="removerTarefa(${i})">❌</button>
+                        ${texto}
+                    </li>
+                </div>
         ` 
     };
 }
